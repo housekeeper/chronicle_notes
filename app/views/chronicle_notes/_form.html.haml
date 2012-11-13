@@ -1,0 +1,10 @@
+= form_for @chronicle_note do |f|
+  - if @chronicle_note.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@chronicle_note.errors.count, "error")} prohibited this chronicle_note from being saved:"
+      %ul
+        - @chronicle_note.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

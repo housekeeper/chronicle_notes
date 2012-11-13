@@ -1,0 +1,18 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: chronicale_notes_development
+  pool: 5
+  username: railsuser
+  host: localhost
+
+
+development:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: chronicale_notes_test
+  pool: 5
+  username: railsuser
+  host: localhost

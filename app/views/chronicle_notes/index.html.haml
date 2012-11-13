@@ -1,0 +1,17 @@
+%h1 Listing chronicle_notes
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @chronicle_notes.each do |chronicle_note|
+    %tr
+      %td= link_to 'Show', chronicle_note
+      %td= link_to 'Edit', edit_chronicle_note_path(chronicle_note)
+      %td= link_to 'Destroy', chronicle_note, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Chronicle note', new_chronicle_note_path

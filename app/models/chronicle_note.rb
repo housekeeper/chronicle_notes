@@ -1,0 +1,3 @@
+class ChronicleNote < Comment
+
+end
