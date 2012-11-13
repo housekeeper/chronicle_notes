@@ -1,3 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+//= require bootstrap_builder/bootstrap
+//= require wysihtml5_gem/wysihtml5-0.3.0
+//= require wysihtml5_gem/advanced

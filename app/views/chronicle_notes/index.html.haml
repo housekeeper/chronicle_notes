@@ -1,5 +1,14 @@
 %h1 Listing chronicle_notes
 
+= form_for :random_object do |f|
+  = text_area_tag :testing, "", :class => "wysihtml5"
+  
+  :javascript
+    var editor = new wysihtml5.Editor("testing", { // id of textarea element
+      //toolbar:      "wysihtml5-toolbar", // id of toolbar element
+      parserRules:  wysihtml5ParserRules // defined in parser rules set 
+    });
+
 %table
   %tr
     %th
