@@ -1,11 +1,72 @@
 %h1 Listing chronicle_notes
 
 = form_for :random_object do |f|
-  = text_area_tag :testing, "", :class => "wysihtml5"
+  
+  %li.dropdown.open
+    %a.btn.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+      %i.icon-font>
+      \ 
+      %span.current-font> Normal text
+      \ 
+      %b.caret
+    %ul.dropdown-menu
+      %li
+        %a{"data-wysihtml5-command" => "formatBlock", "data-wysihtml5-command-value" => "div", :href => "javascript:;", :unselectable => "on"} Normal text
+      %li
+        %a{"data-wysihtml5-command" => "formatBlock", "data-wysihtml5-command-value" => "h1", :href => "javascript:;", :unselectable => "on"} Heading 1
+      %li
+        %a{"data-wysihtml5-command" => "formatBlock", "data-wysihtml5-command-value" => "h2", :href => "javascript:;", :unselectable => "on"} Heading 2
+  %li
+    .btn-group
+      %a.btn{"data-wysihtml5-command" => "bold", :href => "javascript:;", :title => "CTRL+B", :unselectable => "on"} Bold
+      %a.btn{"data-wysihtml5-command" => "italic", :href => "javascript:;", :title => "CTRL+I", :unselectable => "on"} Italic
+      %a.btn{"data-wysihtml5-command" => "underline", :href => "javascript:;", :title => "CTRL+U", :unselectable => "on"} Underline
+  %li
+    .btn-group
+      %a.btn{"data-wysihtml5-command" => "insertUnorderedList", :href => "javascript:;", :title => "Unordered List", :unselectable => "on"}
+        %i.icon-list
+      %a.btn{"data-wysihtml5-command" => "insertOrderedList", :href => "javascript:;", :title => "Ordered List", :unselectable => "on"}
+        %i.icon-th-list
+      %a.btn{"data-wysihtml5-command" => "Outdent", :href => "javascript:;", :title => "Outdent", :unselectable => "on"}
+        %i.icon-indent-right
+      %a.btn{"data-wysihtml5-command" => "Indent", :href => "javascript:;", :title => "Indent", :unselectable => "on"}
+        %i.icon-indent-left
+  %li
+    .bootstrap-wysihtml5-insert-link-modal.modal.hide.fade
+      .modal-header
+        %a.close{"data-dismiss" => "modal"} ×
+        %h3 Insert Link
+      .modal-body
+        %input.bootstrap-wysihtml5-insert-link-url.input-xlarge{:value => "http://"}/
+      .modal-footer
+        %a.btn{"data-dismiss" => "modal", :href => "#"} Cancel
+        %a.btn.btn-primary{"data-dismiss" => "modal", :href => "#"} Insert link
+    %a.btn{"data-wysihtml5-command" => "createLink", :href => "javascript:;", :title => "Link", :unselectable => "on"}
+      %i.icon-share
+  %li
+    .bootstrap-wysihtml5-insert-image-modal.modal.hide.fade
+      .modal-header
+        %a.close{"data-dismiss" => "modal"} ×
+        %h3 Insert Image
+      .modal-body
+        %input.bootstrap-wysihtml5-insert-image-url.input-xlarge{:value => "http://"}/
+      .modal-footer
+        %a.btn{"data-dismiss" => "modal", :href => "#"} Cancel
+        %a.btn.btn-primary{"data-dismiss" => "modal", :href => "#"} Insert image
+    %a.btn{"data-wysihtml5-command" => "insertImage", :href => "javascript:;", :title => "Insert image", :unselectable => "on"}
+      %i.icon-picture  
+  
+  
+  
+  
+  
+  %div{"data-behavior" => "wysiwyg_container", "data-wysiwyg-follow-threshold" => "116", :style => ""}
+    = render "toolbar"
+    = text_area_tag :testing, "", :class => "wysihtml5"
   
   :javascript
     var editor = new wysihtml5.Editor("testing", { // id of textarea element
-      //toolbar:      "wysihtml5-toolbar", // id of toolbar element
+      toolbar:      "wysiwyg_toolbar", // id of toolbar element
       parserRules:  wysihtml5ParserRules // defined in parser rules set 
     });
 
